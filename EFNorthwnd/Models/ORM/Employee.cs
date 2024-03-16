@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,10 @@ namespace EFNorthwnd.Models.ORM
         public string? Notes {  get; set; }
         public string? PhotoPath {  get; set; }
         [MaxLength(255)]
+
         public int? ReportsTo { get; set; }
+        [ForeignKey("ReportsTo")]
+        public Employee Employees{ get; set; }
+
     }
 }
